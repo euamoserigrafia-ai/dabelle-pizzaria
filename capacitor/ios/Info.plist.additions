@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  iOS — adições ao Info.plist
+  Caminho: ios/App/App/Info.plist
+  Após npx cap add ios, MESCLE estas chaves no Info.plist gerado pelo Xcode
+-->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- Nome do app na tela inicial -->
+    <key>CFBundleDisplayName</key>
+    <string>Dabelle Pizzaria</string>
+
+    <key>CFBundleIdentifier</key>
+    <string>br.com.dabellepizzaria.app</string>
+
+    <key>CFBundleShortVersionString</key>
+    <string>1.0.0</string>
+
+    <key>CFBundleVersion</key>
+    <string>1</string>
+
+    <!-- Deep Links — dabelle://rastrear?pedido=66 -->
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLName</key>
+            <string>br.com.dabellepizzaria.app</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>dabelle</string>
+            </array>
+        </dict>
+    </array>
+
+    <!-- Associated Domains — https://pedidos.dabellepizzaria.com.br -->
+    <key>com.apple.developer.associated-domains</key>
+    <array>
+        <string>applinks:pedidos.dabellepizzaria.com.br</string>
+        <string>webcredentials:pedidos.dabellepizzaria.com.br</string>
+    </array>
+
+    <!-- Permissões — textos exibidos ao usuário no popup de permissão -->
+    <key>NSCameraUsageDescription</key>
+    <string>Usamos a câmera para você tirar fotos de produtos no painel admin.</string>
+
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Usamos a galeria para você escolher fotos de produtos.</string>
+
+    <key>NSPhotoLibraryAddUsageDescription</key>
+    <string>Salvamos fotos de produtos na sua galeria.</string>
+
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Usamos sua localização para calcular a taxa de entrega automaticamente.</string>
+
+    <key>NSFaceIDUsageDescription</key>
+    <string>Use Face ID para acessar o painel admin com segurança.</string>
+
+    <!-- Permitir chamadas HTTP para ViaCEP (CEP lookup) -->
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSExceptionDomains</key>
+        <dict>
+            <key>viacep.com.br</key>
+            <dict>
+                <key>NSExceptionAllowsInsecureHTTPLoads</key>
+                <false/>
+                <key>NSIncludesSubdomains</key>
+                <true/>
+            </dict>
+        </dict>
+    </dict>
+
+    <!-- WhatsApp — permitir abrir app externo -->
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>whatsapp</string>
+        <string>waze</string>
+        <string>googlemaps</string>
+    </array>
+
+    <!-- Suporte a orientação apenas retrato (app de pedidos) -->
+    <key>UISupportedInterfaceOrientations</key>
+    <array>
+        <string>UIInterfaceOrientationPortrait</string>
+    </array>
+
+    <key>UISupportedInterfaceOrientations~ipad</key>
+    <array>
+        <string>UIInterfaceOrientationPortrait</string>
+        <string>UIInterfaceOrientationLandscapeLeft</string>
+        <string>UIInterfaceOrientationLandscapeRight</string>
+    </array>
+
+    <!-- Cor da status bar -->
+    <key>UIStatusBarStyle</key>
+    <string>UIStatusBarStyleDefault</string>
+
+    <key>UIViewControllerBasedStatusBarAppearance</key>
+    <true/>
+</dict>
+</plist>

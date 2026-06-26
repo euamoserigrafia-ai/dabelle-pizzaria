@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Android - strings.xml
+  Caminho final: android/app/src/main/res/values/strings.xml
+  Gerado automaticamente pelo Capacitor — edite aqui e rode: npx cap sync
+-->
+<resources>
+    <string name="app_name">Dabelle Pizzaria</string>
+    <string name="title_activity_main">Dabelle Pizzaria</string>
+    <string name="package_name">br.com.dabellepizzaria.app</string>
+    <string name="custom_url_scheme">dabelle</string>
+
+    <!-- Push Notifications -->
+    <string name="default_notification_channel_id">dabelle_pedidos</string>
+    <string name="default_notification_channel_name">Pedidos</string>
+
+    <!-- Deep Links -->
+    <string name="deeplink_scheme">dabelle</string>
+    <string name="deeplink_host">pedidos.dabellepizzaria.com.br</string>
+</resources>

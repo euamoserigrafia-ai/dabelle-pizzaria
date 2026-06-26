@@ -1,0 +1,31 @@
+{
+  "_INSTRUCOES": [
+    "1. Acesse console.firebase.google.com",
+    "2. Crie um projeto chamado 'dabelle-pizzaria'",
+    "3. Adicione um app Android com package: br.com.dabellepizzaria.app",
+    "4. Baixe o google-services.json e substitua este arquivo",
+    "5. Coloque o arquivo em: android/app/google-services.json"
+  ],
+  "project_info": {
+    "project_number": "SEU_PROJECT_NUMBER",
+    "project_id": "dabelle-pizzaria",
+    "storage_bucket": "dabelle-pizzaria.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:SEU_PROJECT_NUMBER:android:HASH",
+        "android_client_info": {
+          "package_name": "br.com.dabellepizzaria.app"
+        }
+      },
+      "api_key": [{ "current_key": "SUA_API_KEY" }],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

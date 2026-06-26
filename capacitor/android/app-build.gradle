@@ -1,0 +1,55 @@
+// android/app/build.gradle
+// Configurações do app Android — copie para android/app/build.gradle após npx cap add android
+
+android {
+    namespace "br.com.dabellepizzaria.app"
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "br.com.dabellepizzaria.app"
+        minSdk 24          // Android 7.0 — cobre 98% dos dispositivos
+        targetSdk 34       // Android 14
+        versionCode 1
+        versionName "1.0.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            // Assinar com keystore (gere com: keytool -genkey -v -keystore dabelle.jks ...)
+            signingConfig signingConfigs.release
+        }
+        debug {
+            applicationIdSuffix ".debug"
+            versionNameSuffix "-debug"
+        }
+    }
+
+    signingConfigs {
+        release {
+            // Configure via variáveis de ambiente no CI/CD
+            storeFile     file(System.getenv("KEYSTORE_PATH") ?: "dabelle.jks")
+            storePassword System.getenv("KEYSTORE_PASSWORD") ?: ""
+            keyAlias      System.getenv("KEY_ALIAS") ?: "dabelle"
+            keyPassword   System.getenv("KEY_PASSWORD") ?: ""
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    implementation "androidx.appcompat:appcompat:1.6.1"
+    implementation "com.google.android.material:material:1.11.0"
+    // Firebase para push notifications
+    implementation platform("com.google.firebase:firebase-bom:32.7.0")
+    implementation "com.google.firebase:firebase-messaging"
+}
+
+apply plugin: 'com.google.gms.google-services'
